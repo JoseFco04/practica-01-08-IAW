@@ -65,3 +65,16 @@ ServerTokens Prod
 </VirtualHost>
 ~~~
 ### Y el htaccess así:
+~~~
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+~~~
+### También tenemos que crear un script para el letsencrypt para el tema del dominio y las claves de seguridad que ya hemos usado en practicas anteriores. Paso por paso el script es así:
