@@ -48,3 +48,20 @@ cp ../php/index.php /var/www/html
 chown -R www-data:www-data /var/www/html
 ~~~
 ### Previamente deberiamos haber tenido los archivos de configuración 000-default.conf y el .htaccess configurados en la máquina. El 000default se debería de ver así:
+~~~
+ServerSignature Off
+ServerTokens Prod
+<VirtualHost *:80>
+  #ServerName www.example.com
+  DocumentRoot /var/www/html
+  DirectoryIndex index.php index.html
+
+  <Directory "/var/www/html">
+    AllowOverride All
+  </Directory>
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+~~~
+### Y el htaccess así:
