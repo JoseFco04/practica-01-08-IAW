@@ -6,5 +6,6 @@
 ![2](https://github.com/JoseFco04/practica-01-08-IAW/assets/145347148/5c3dc2b7-c600-4817-9b6f-f95d5cdf1ce4)
 ### Ahora para empezar debemos usar el archivo phpsinfo.php que descargamos previamente y añadirlo a nuestra carpeta de archivos php. EL código del archivo esta en el repositorio de esta práctica.
 
-### Lo siguiente que tenemos que hacer es configurar el script del install_lamp que debemos ejecutar antes de hacer la práctica:
+### Lo siguiente que tenemos que hacer es configurar el script del install_lamp que debemos ejecutar antes de hacer la práctica que paso por paso se ve así:
+
 
