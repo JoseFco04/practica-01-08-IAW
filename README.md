@@ -78,3 +78,40 @@ RewriteRule . /index.php [L]
 # END WordPress
 ~~~
 ### También tenemos que crear un script para el letsencrypt para el tema del dominio y las claves de seguridad que ya hemos usado en practicas anteriores. Paso por paso el script es así:
+#### Volvemos a mostrar todos los comandos que se van ejecutando
+~~~
+set -ex
+~~~
+#### Actualizamos los repositorios
+~~~
+apt update
+~~~
+#### Actualizamos los paquetes
+~~~
+#apt upgrade -y
+~~~
+#### Importamos el archivo de variables .env
+~~~
+source .env
+~~~
+### Instalamos y actualizamos snapd
+~~~
+snap install core && snap refresh core
+~~~
+#### Eliminamos cualquier instalación previa de certbot con apt
+~~~
+apt remove certbot
+~~~
+#### Instalamos la aplicación certbot
+~~~
+snap install --classic certbot
+~~~
+#### Creamos un alias para la aplicación certbot
+~~~
+ln -fs /snap/bin/certbot /usr/bin/certbot
+~~~
+#### Ejecutamos el comando certbot
+~~~
+certbot --apache -m $CB_MAIL --agree-tos --no-eff-email -d $CB_DOMAIN --non-interactive
+~~~
+### Y lo máas importante de la práctica y lo que realmente cambia de las otras es el deploy del prestashop y el .env que es el archivo con las variables. El deploy paso por paso es así:
